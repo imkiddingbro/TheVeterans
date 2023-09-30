@@ -43,8 +43,9 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.grey[800],
       appBar: AppBar(
-        title: const Text('Recipe Manager =)'),
+        title: const Center(child: Text('Recipe Manager =)')),
         backgroundColor: Colors.green,
       ),
       body: Center(
