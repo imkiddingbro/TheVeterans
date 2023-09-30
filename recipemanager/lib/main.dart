@@ -26,9 +26,12 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-   const Text('Home Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-   const Text('Search Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-   const Text('Profile Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    const Text('Home Page', 
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)), 
+    const Text('Search Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    const Text('Profile Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
 
   void _onItemTapped(int index) {
@@ -41,11 +44,22 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter BottomNavigationBar Example'),
-        backgroundColor: Colors.green,
+        title: const Center(child: Text('Recipe Manager =)')),
+        backgroundColor: Colors.black,
       ),
+      body: Padding(
+          padding: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          child: Column(children: <Widget>[
+            Text('What Ingredients are you using?',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 252, 250, 250),
+                  letterSpacing: 1.5,
+                ))
+          ])),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: Container(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        )
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
