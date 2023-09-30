@@ -9,7 +9,7 @@ class Recipe extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Recipe ID Card'));
+        title: Center(child: Text('Recipe ID Card')),
       ),
     );
   }
