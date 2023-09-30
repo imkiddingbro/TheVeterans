@@ -30,7 +30,7 @@ class MyNavigationBarState extends State<MyNavigationBar> {
         style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)), 
     const Text('Search Page',
         style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    const Text('Profile Page',
+    const Text('Create Page',
         style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
 
@@ -69,8 +69,8 @@ class MyNavigationBarState extends State<MyNavigationBar> {
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.add_box_outlined),
+            label: 'Create',
             backgroundColor: Colors.green,
           ),
         ],
