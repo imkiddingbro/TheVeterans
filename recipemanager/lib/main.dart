@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,48 +28,24 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const Center(child: Text("test 1234"))
-    , 
-    
-    //Text('Home Page', 
-        //style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)), 
-
-
-
-
-
-
-
-
-
-
+    const Text('Home Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)), 
     const Text('Search Page',
         style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-
-
-
-
-
-
-
-
-
-
-
-    const Text('Create Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-
-
-
-
-
-
-
-
-
-
-
-        
+    Container(
+      child: Row(children: [
+        Expanded(child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Center(child: Text('Create Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),)),
+            ),
+            const Text('Recipe', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),)
+          ],
+        ))
+      ],)
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -85,10 +63,11 @@ class MyNavigationBarState extends State<MyNavigationBar> {
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
-        child:  _widgetOptions.elementAt(_selectedIndex),
-        
+        child: Column(children: <Widget>[
+          Center(child: _widgetOptions.elementAt(_selectedIndex)),
+        ]
           
-        
+        )
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
