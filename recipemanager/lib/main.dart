@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyNavigationBar extends StatefulWidget {
- const MyNavigationBar({Key? key}) : super(key: key);
+  const MyNavigationBar({Key? key}) : super(key: key);
 
   @override
   MyNavigationBarState createState() => MyNavigationBarState();
@@ -26,9 +26,12 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-   const Text('Home Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-   const Text('Search Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-   const Text('Profile Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    const Text('Home Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    const Text('Search Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    const Text('Profile Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
 
   void _onItemTapped(int index) {
@@ -41,7 +44,7 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter BottomNavigationBar Example'),
+        title: const Text('Recipe Manager =)'),
         backgroundColor: Colors.green,
       ),
       body: Center(
