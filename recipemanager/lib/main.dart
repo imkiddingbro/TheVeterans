@@ -26,8 +26,8 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const Text('Home Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    const Text('Home Page', 
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)), 
     const Text('Search Page',
         style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
     const Text('Profile Page',
@@ -43,13 +43,15 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.grey[800],
+      backgroundColor: Color.fromARGB(128,128,128, 0),
       appBar: AppBar(
         title: const Center(child: Text('Recipe Manager =)')),
         backgroundColor: Colors.green,
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: Container(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        )
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
