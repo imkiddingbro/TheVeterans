@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyNavigationBar extends StatefulWidget {
-  const MyNavigationBar({Key? key}) : super(key: key);
+ const MyNavigationBar({Key? key}) : super(key: key);
 
   @override
   MyNavigationBarState createState() => MyNavigationBarState();
@@ -26,12 +26,9 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const Text('Home Page', 
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)), 
-    const Text('Search Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    const Text('Profile Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+   const Text('Home Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+   const Text('Search Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+   const Text('Profile Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
 
   void _onItemTapped(int index) {
@@ -43,41 +40,29 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(128, 49, 45, 45),
       appBar: AppBar(
-        title: const Center(child: Text('Recipe Manager =)')),
-        backgroundColor: Colors.black,
+        title: const Text('Flutter BottomNavigationBar Example'),
+        backgroundColor: Colors.green,
       ),
-      body: Padding(
-          padding: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
-          child: Column(children: <Widget>[
-            Text('What Ingredients are you using?',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 252, 250, 250),
-                  letterSpacing: 1.5,
-                ))
-          ])),
       body: Center(
-        child: Container(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        )
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.yellow,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.blue,
           ),
         ],
         type: BottomNavigationBarType.shifting,
