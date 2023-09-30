@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-  home: Recipe(),
-));
+      home: Recipe(),
+    ));
 
 class Recipe extends StatelessWidget {
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recipe ID Card');
+        title: Text('Recipe Search'),
       ),
     );
   }
 }
-
-  
