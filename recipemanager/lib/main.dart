@@ -1,100 +1,77 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-      home: Recipe(),
-    ));
+void main() {
+  runApp(MyApp());
+}
 
-class Recipe extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[750],
-      appBar: AppBar(
-        title: Text('Recipe Search'),
-        centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 255, 251, 251),
-        elevation: 0.0,
+    return MaterialApp(
+      home: MyNavigationBar(
+        key: UniqueKey(), // Use UniqueKey to ensure a non-null key
       ),
     );
   }
 }
 
-/*
- 
-FavoritesPage will contain the recipes favorited by the local user.
-Links to the state of MyFavoritesPage which will contain layout of page.
-*/
-
-class MyFavoritesPage extends StatefulWidget {
-  const MyFavoritesPage({super.key, required this.title});
-
-  final String title;
+class MyNavigationBar extends StatefulWidget {
+ const MyNavigationBar({Key? key}) : super(key: key);
 
   @override
-  State<MyFavoritesPage> createState() => _MyFavoritePageState();
+  MyNavigationBarState createState() => MyNavigationBarState();
 }
 
-/*
- 
-_MyFavoritePageState will contain the layout of the favorite page.
-*/
+class MyNavigationBarState extends State<MyNavigationBar> {
+  int _selectedIndex = 0;
 
-class _MyFavoritePageState extends State<MyFavoritesPage> {
-  int _counter = 0;
+  final List<Widget> _widgetOptions = <Widget>[
+   const Text('Home Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+   const Text('Search Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+   const Text('Profile Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+  ];
 
-  void _incrementCounter() {
+  void _onItemTapped(int index) {
     setState(() {
-      _counter++;
+      _selectedIndex = index;
     });
   }
-@override
+
+  @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+        title: const Text('Flutter BottomNavigationBar Example'),
+        backgroundColor: Colors.green,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.green,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+            backgroundColor: Colors.yellow,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+            backgroundColor: Colors.blue,
+          ),
+        ],
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.black,
+        iconSize: 40,
+        onTap: _onItemTapped,
+        elevation: 5,
+      ),
     );
   }
-
 }
