@@ -43,11 +43,20 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(128,128,128, 0),
+      backgroundColor: Color.fromARGB(128, 49, 45, 45),
       appBar: AppBar(
         title: const Center(child: Text('Recipe Manager =)')),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.black,
       ),
+      body: Padding(
+          padding: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          child: Column(children: <Widget>[
+            Text('What Ingredients are you using?',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 252, 250, 250),
+                  letterSpacing: 1.5,
+                ))
+          ])),
       body: Center(
         child: Container(
           child: _widgetOptions.elementAt(_selectedIndex),
@@ -58,17 +67,17 @@ class MyNavigationBarState extends State<MyNavigationBar> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
-            backgroundColor: Colors.yellow,
+            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.green,
           ),
         ],
         type: BottomNavigationBarType.shifting,
