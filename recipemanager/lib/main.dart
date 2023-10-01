@@ -36,12 +36,25 @@ class MyNavigationBarState extends State<MyNavigationBar> {
       child: Row(children: [
         Expanded(child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             Container(
               padding: const EdgeInsets.only(bottom: 8),
               child: Center(child: Text('Create Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),)),
             ),
-            const Text('Recipe', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),)
+            const Text('Something Else', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),),
+
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+              ), //InputDecoration
+            ), //TextField
+            const Text('Something', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),),
+
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+              ), //InputDecoration
+            ), //TextField
           ],
         ))
       ],)
